@@ -98,7 +98,7 @@ export const pageQuery = graphql`query BlogPostBySlug($slug: String!) {
       date
       image: featured {
         childImageSharp {
-          resize(width: 300) {
+          resize(width: 120, height: 120) {
             src
             height
             width
