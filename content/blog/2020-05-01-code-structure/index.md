@@ -1,7 +1,7 @@
 ---
 title: "Code Structure"
 date: 2020-05-01
-featured: images/featured.jpeg
+featured: images/featured.jpg
 published: true
 ---
 
