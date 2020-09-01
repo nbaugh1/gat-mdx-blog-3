@@ -7,6 +7,7 @@ module.exports = {
     },
     description: `A blog for things that I find interesting and useful for coding`,
     siteUrl: `https://npb-dev-blog.netlify.app/`,
+    keywords: `test, test, test, test, test`,
     social: {
       twitter: `nbaugh1`,
     },

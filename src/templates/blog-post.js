@@ -9,6 +9,9 @@ import { rhythm, scale } from "../utils/typography"
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
+  const image = post.frontmatter.image
+    ? post.frontmatter.image.childImageSharp.resize
+    : null
   const { previous, next } = pageContext
 
   return (
@@ -16,6 +19,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
       <SEO
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
+        image={image}
       />
       <article>
         <header>
@@ -80,21 +84,29 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
 
 export default BlogPostTemplate
 
-export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
-    site {
-      siteMetadata {
-        title
-      }
+export const pageQuery = graphql`query BlogPostBySlug($slug: String!) {
+  site {
+    siteMetadata {
+      title
     }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      id
-      excerpt(pruneLength: 160)
-      html
-      frontmatter {
-        title
-        date(formatString: "MMMM DD, YYYY")
+  }
+  markdownRemark(fields: { slug: { eq: $slug } }) {
+    id
+    excerpt(pruneLength: 160)
+    html
+    frontmatter {
+      title
+      date
+      image: featured {
+        childImageSharp {
+          resize(width: 1200) {
+            src
+            height
+            width
+          }
+        }
       }
     }
   }
+}
 `

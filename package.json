@@ -39,15 +39,15 @@
   "devDependencies": {
     "prettier": "2.0.5"
   },
-  "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
+  "homepage": "https://npb-dev-blog.netlify.app/",
   "keywords": [
-    "gatsby"
+    "gatsby", "blog", "software developer", "javascript", "react", "ruby", "ruby on rails"
   ],
   "license": "0BSD",
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
+    "url": "git+https://github.com/nbaugh1/gat-mdx-blog-3.git"
   },
   "scripts": {
     "build": "gatsby build",
