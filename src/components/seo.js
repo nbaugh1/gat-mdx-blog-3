@@ -19,8 +19,8 @@ const SEO = ({ description, keywords, lang, meta, image: metaImage, title }) => 
             title
             description
             keywords
-            social {
-              twitter
+            author{
+              name
             }
           }
         }
@@ -115,6 +115,12 @@ SEO.propTypes = {
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string.isRequired,
+  image: PropTypes.shape({
+    src: PropTypes.string.isRequired,
+    height: PropTypes.number.isRequired,
+    width: PropTypes.number.isRequired,
+  }),
+  pathname: PropTypes.string,
 }
 
 export default SEO

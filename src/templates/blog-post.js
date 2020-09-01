@@ -1,6 +1,5 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -99,7 +98,7 @@ export const pageQuery = graphql`query BlogPostBySlug($slug: String!) {
       date
       image: featured {
         childImageSharp {
-          resize(width: 1200) {
+          resize(width: 300) {
             src
             height
             width
