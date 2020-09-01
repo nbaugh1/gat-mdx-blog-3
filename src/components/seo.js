@@ -70,34 +70,33 @@ const SEO = ({ description, keywords, lang, meta, image: metaImage, title }) => 
           name: `twitter:description`,
           content: metaDescription,
         },
-      ]
-        .concat(
-          metaImage
-            ? [
-              {
-                property: "og:image",
-                content: image,
-              },
-              {
-                property: "og:image:width",
-                content: metaImage.width,
-              },
-              {
-                property: "og:image:height",
-                content: metaImage.height,
-              },
-              {
-                name: "twitter:card",
-                content: "summary_large_image",
-              },
-            ]
-            : [
-              {
-                name: "twitter:card",
-                content: "summary",
-              },
-            ]
-        )
+      ].concat(
+        metaImage
+          ? [
+            {
+              property: `og:image`,
+              content: image,
+            },
+            {
+              property: `og:image:width`,
+              content: metaImage.width,
+            },
+            {
+              property: `og:image:height`,
+              content: metaImage.height,
+            },
+            {
+              name: `twitter:card`,
+              content: `summary_large_image`,
+            },
+          ]
+          : [
+            {
+              name: `twitter:card`,
+              content: `summary`,
+            },
+          ]
+      )
         .concat(meta)}
     />
   )
