@@ -29,11 +29,12 @@ const SEO = ({ description, keywords, lang, meta, image: metaImage, title }) => 
   )
 
   const metaDescription = description || site.siteMetadata.description
-  const image =
-    metaImage && metaImage.src
-      ? `${site.siteMetadata.siteUrl}${metaImage.src}`
-      : null
-
+  const imageSrc = metaImage && metaImage.src
+  let origin = "";
+  if (typeof window !== "undefined") {
+    origin = window.location.origin;
+  }
+  const image = origin + imageSrc
   return (
     <Helmet
       htmlAttributes={{
