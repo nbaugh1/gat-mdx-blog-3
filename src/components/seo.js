@@ -74,7 +74,10 @@ const SEO = ({ description, keywords, lang, meta, image: metaImage, title }) => 
       ].concat(
         metaImage
           ? [
-
+            {
+              name: `twitter:card`,
+              content: `summary_large_image`,
+            },
             {
               property: `og:image`,
               content: image,
