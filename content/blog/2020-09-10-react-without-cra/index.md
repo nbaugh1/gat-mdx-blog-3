@@ -66,7 +66,6 @@ JSX and ES6 JavaScript. We then use webpack to bundle all of the javascript modu
 in our app, using babel to transiple our code in to browser compatable script, and then provide
 the output bundle to be delivered by our development server.
 
-Please see https://blog.usejournal.com/creating-a-react-app-from-scratch-f3c693b84658 for a more
-detailed walkthrough.
+For a more detailed walkthrough, please see: https://blog.usejournal.com/creating-a-react-app-from-scratch-f3c693b84658
 
 Source code for this project here: https://github.com/nbaugh1/scratch-react
