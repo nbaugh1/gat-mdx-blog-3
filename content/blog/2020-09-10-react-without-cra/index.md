@@ -36,7 +36,7 @@ to be output by Webpack - `<script src="../dist/bundle.js"></script>`.
 Since we're working with React, which means using JSX, and writing ES6 JavaScript, we
 need to use Babel to transiple our JavaScript down to a browser compatable version. To
 do this, we need to create a `.babelrc` file where we will configure the needed babel plugins.
-The plugins needed for this project are `preser-env` for the ES6 and `preset-react` for our
+The plugins needed for this project are `preset-env` for the ES6 and `preset-react` for our
 React code.
 
 Next we need to setup the all important Webpack. We'll do this in a file placed in our root
