@@ -22,10 +22,10 @@ export default async function SitemapPage() {
           <div>
             <h3 className="text-gray-400 mb-2 text-xs uppercase">[tags]</h3>
             <ul className="space-y-1">
-              <li><Link href="/tags/ruby" className="text-red-400 hover:text-red-300">#ruby</Link></li>
+              <li><Link href="/tags/python" className="text-blue-400 hover:text-blue-300">#python</Link></li>
               <li><Link href="/tags/javascript" className="text-yellow-400 hover:text-yellow-300">#js</Link></li>
               <li><Link href="/tags/react" className="text-blue-400 hover:text-blue-300">#react</Link></li>
-              <li><Link href="/tags/rails" className="text-red-400 hover:text-red-300">#rails</Link></li>
+              <li><Link href="/tags/ai" className="text-purple-400 hover:text-purple-300">#ai</Link></li>
             </ul>
           </div>
         </nav>
@@ -77,10 +77,10 @@ export default async function SitemapPage() {
             <div>
               <h2 className="text-white text-lg mb-2">Tags</h2>
               <ul className="space-y-1 text-sm text-gray-300 ml-4">
-                <li>├── <Link href="/tags/ruby" className="text-red-400 hover:text-red-300">#ruby</Link></li>
+                <li>├── <Link href="/tags/python" className="text-blue-400 hover:text-blue-300">#python</Link></li>
                 <li>├── <Link href="/tags/javascript" className="text-yellow-400 hover:text-yellow-300">#javascript</Link></li>
                 <li>├── <Link href="/tags/react" className="text-blue-400 hover:text-blue-300">#react</Link></li>
-                <li>└── <Link href="/tags/rails" className="text-red-400 hover:text-red-300">#rails</Link></li>
+                <li>└── <Link href="/tags/ai" className="text-purple-400 hover:text-purple-300">#ai</Link></li>
               </ul>
             </div>
           </div>
