@@ -1,8 +1,8 @@
 import './globals.css'
-import { Inter } from 'next/font/google'
+import { JetBrains_Mono } from 'next/font/google'
 import { Metadata } from 'next'
 
-const inter = Inter({ subsets: ['latin'] })
+const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: {
@@ -33,30 +33,30 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <div className="min-h-screen bg-white">
-          <header className="border-b border-gray-200">
-            <div className="max-w-4xl mx-auto px-4 py-6">
+      <body className={`${jetbrainsMono.className} bg-gray-900 text-gray-300`}>
+        <div className="min-h-screen">
+          <header className="border-b border-gray-700 bg-gray-800">
+            <div className="px-4 py-4">
               <div className="flex items-center justify-between">
                 <div>
-                  <h1 className="text-2xl font-bold text-gray-900">
-                    <a href="/" className="hover:text-gray-700">
-                      NPB Dev Blog
+                  <h1 className="text-xl font-bold text-green-400">
+                    <a href="/" className="hover:text-green-300">
+                      ~/npb-dev-blog $
                     </a>
                   </h1>
-                  <p className="text-gray-600 text-sm mt-1">
-                    by Nick Baughman, a software developer who works with Ruby and JavaScript
+                  <p className="text-gray-400 text-sm mt-1">
+                    nick:~$ whoami
                   </p>
                 </div>
               </div>
             </div>
           </header>
-          <main className="max-w-4xl mx-auto px-4 py-8">
+          <main className="w-full">
             {children}
           </main>
-          <footer className="border-t border-gray-200 mt-12">
-            <div className="max-w-4xl mx-auto px-4 py-6 text-center text-gray-600 text-sm">
-              © {new Date().getFullYear()} Nick Baughman. Built with Next.js.
+          <footer className="border-t border-gray-700 bg-gray-800">
+            <div className="px-4 py-4 text-center text-gray-400 text-sm">
+              © {new Date().getFullYear()} nick | built with next.js
             </div>
           </footer>
         </div>
