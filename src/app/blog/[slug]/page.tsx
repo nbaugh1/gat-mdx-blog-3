@@ -53,44 +53,77 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { previous, next } = await getAdjacentPosts(params.slug);
 
   return (
-    <article className="max-w-3xl mx-auto">
-      <nav className="mb-6 text-sm text-gray-500">
-        <div className="flex justify-between">
-          {previous ? (
-            <Link href={`/blog/${previous.slug}`} className="hover:text-gray-900">
-              ← {previous.title}
-            </Link>
-          ) : <div></div>}
-          {next ? (
-            <Link href={`/blog/${next.slug}`} className="hover:text-gray-900">
-              {next.title} →
-            </Link>
-          ) : <div></div>}
-        </div>
-      </nav>
+    <div className="flex gap-3 w-full bg-gray-900 min-h-screen font-mono text-sm">
+      {/* Left Sidebar */}
+      <aside className="w-32 flex-shrink-0 bg-gray-800 border-r border-gray-700">
+        <nav className="sticky top-4 p-3">
+          <div className="mb-4">
+            <h3 className="text-gray-400 mb-2 text-xs uppercase">[nav]</h3>
+            <ul className="space-y-1">
+              <li><a href="/" className="block text-gray-300 hover:text-white">$ home</a></li>
+              <li><a href="/projects" className="block text-gray-300 hover:text-white">$ projects</a></li>
+              <li><a href="/about" className="block text-gray-300 hover:text-white">$ about</a></li>
+              <li><a href="/contact" className="block text-gray-300 hover:text-white">$ contact</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="text-gray-400 mb-2 text-xs uppercase">[tags]</h3>
+            <ul className="space-y-1">
+              <li><a href="/tags/ruby" className="text-red-400 hover:text-red-300">#ruby</a></li>
+              <li><a href="/tags/javascript" className="text-yellow-400 hover:text-yellow-300">#js</a></li>
+              <li><a href="/tags/react" className="text-blue-400 hover:text-blue-300">#react</a></li>
+              <li><a href="/tags/rails" className="text-red-400 hover:text-red-300">#rails</a></li>
+            </ul>
+          </div>
+        </nav>
+      </aside>
 
-      <header className="mb-8">
-        <h1 className="text-4xl font-bold text-gray-900 mb-4">
-          {post.title}
-        </h1>
-        <time className="text-gray-500 text-sm">
-          {formatDate(post.date)}
-        </time>
-      </header>
+      {/* Main Content */}
+      <main className="flex-1 min-w-0 bg-black px-4 py-4">
+        <article className="bg-gray-800 border border-gray-600 p-6">
+          <header className="mb-6 border-b border-gray-700 pb-4">
+            <h1 className="text-2xl font-bold text-white mb-2">
+              {post.title}
+            </h1>
+            <time className="text-gray-400 text-sm">
+              $ cat {formatDate(post.date)}
+            </time>
+          </header>
 
-      <div className="prose prose-lg max-w-none">
-        <div dangerouslySetInnerHTML={{ __html: post.content }} />
-      </div>
+          <div className="prose prose-invert max-w-none text-gray-300">
+            <div dangerouslySetInnerHTML={{ __html: post.content }} />
+          </div>
 
-      <footer className="mt-12 pt-8 border-t border-gray-200">
-        <div className="flex justify-between items-center">
-          <div className="text-sm text-gray-600">
-            <p>
-              Written by <strong>Nick Baughman</strong>, a software developer who works with Ruby and JavaScript.
-            </p>
+          <footer className="mt-8 pt-4 border-t border-gray-700">
+            <div className="text-xs text-gray-400">
+              <p>
+                // written by nick
+              </p>
+            </div>
+          </footer>
+        </article>
+      </main>
+
+      {/* Right Sidebar */}
+      <aside className="w-32 flex-shrink-0 bg-gray-800 border-l border-gray-700">
+        <div className="sticky top-4 p-3">
+          <div className="mb-4">
+            <h3 className="text-gray-400 mb-2 text-xs uppercase">[actions]</h3>
+            <ul className="space-y-1 text-xs">
+              <li><a href="/" className="block text-gray-300 hover:text-white">← back</a></li>
+              <li><a href="#" className="block text-gray-300 hover:text-white">print</a></li>
+              <li><a href="#" className="block text-gray-300 hover:text-white">share</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="text-gray-400 mb-2 text-xs uppercase">[utils]</h3>
+            <ul className="space-y-1 text-xs">
+              <li><a href="/archive" className="block text-gray-300 hover:text-white">archive.sh</a></li>
+              <li><a href="/rss" className="block text-gray-300 hover:text-white">rss.xml</a></li>
+            </ul>
           </div>
         </div>
-      </footer>
-    </article>
+      </aside>
+    </div>
   );
 }
