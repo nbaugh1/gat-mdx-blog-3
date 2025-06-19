@@ -91,3 +91,22 @@ export function getAllPostSlugs(): string[] {
     return fs.existsSync(fullPath);
   });
 }
+
+export async function getAdjacentPosts(currentSlug: string): Promise<{
+  previous: BlogPost | null;
+  next: BlogPost | null;
+}> {
+  const allPosts = await getAllPosts();
+  const currentIndex = allPosts.findIndex(post => post.slug === currentSlug);
+  
+  if (currentIndex === -1) {
+    return { previous: null, next: null };
+  }
+  
+  // Since posts are sorted by date (newest first), 
+  // previous is the newer post (lower index) and next is the older post (higher index)
+  const previous = currentIndex > 0 ? allPosts[currentIndex - 1] : null;
+  const next = currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : null;
+  
+  return { previous, next };
+}

@@ -1,7 +1,8 @@
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
-import { getPostBySlug, getAllPostSlugs } from '@/lib/blog';
+import { getPostBySlug, getAllPostSlugs, getAdjacentPosts } from '@/lib/blog';
 import { formatDate } from '@/lib/utils';
+import Link from 'next/link';
 
 interface BlogPostPageProps {
   params: {
@@ -48,6 +49,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   if (!post) {
     notFound();
   }
+
+  const { previous, next } = await getAdjacentPosts(params.slug);
 
   return (
     <div className="flex gap-3 w-full bg-gray-900 min-h-screen font-mono text-sm">
