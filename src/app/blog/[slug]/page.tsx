@@ -69,10 +69,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <div>
             <h3 className="text-gray-400 mb-2 text-xs uppercase">[tags]</h3>
             <ul className="space-y-1">
-              <li><a href="/tags/ruby" className="text-red-400 hover:text-red-300">#ruby</a></li>
+              <li><a href="/tags/python" className="text-blue-400 hover:text-blue-300">#python</a></li>
               <li><a href="/tags/javascript" className="text-yellow-400 hover:text-yellow-300">#js</a></li>
               <li><a href="/tags/react" className="text-blue-400 hover:text-blue-300">#react</a></li>
-              <li><a href="/tags/rails" className="text-red-400 hover:text-red-300">#rails</a></li>
+              <li><a href="/tags/ai" className="text-purple-400 hover:text-purple-300">#ai</a></li>
             </ul>
           </div>
         </nav>
