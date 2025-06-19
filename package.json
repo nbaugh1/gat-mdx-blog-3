@@ -1,26 +1,32 @@
 {
   "name": "npb-dev-blog",
-  "private": true,
   "description": "A software development blog written by Nick Baughman",
   "version": "0.1.0",
   "author": "Nick Baughman <nbaugh1@gmail.com>",
+  "bin": {
+    "blog": "./scripts/blog.js"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
-    "export": "next export"
+    "export": "next export",
+    "blog": "node scripts/blog.js"
   },
   "dependencies": {
+    "@tailwindcss/typography": "^0.5.10",
+    "chalk": "^4.1.2",
+    "commander": "^12.0.0",
+    "gray-matter": "^4.0.3",
+    "inquirer": "^9.3.7",
     "next": "^14.0.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "gray-matter": "^4.0.3",
     "remark": "^15.0.1",
     "remark-html": "^16.0.1",
-    "remark-prism": "^1.3.6",
-    "@tailwindcss/typography": "^0.5.10"
+    "remark-prism": "^1.3.6"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",

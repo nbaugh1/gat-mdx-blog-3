@@ -23,7 +23,73 @@ A personal development blog built with Next.js, TypeScript, and Tailwind CSS. Th
 
 ## 📝 Content Management
 
-### Adding a New Blog Post
+### Blog CLI Tool
+
+The project includes a command-line tool to easily create and edit blog posts.
+
+#### Global Installation (Recommended)
+
+For easy access from anywhere:
+
+```bash
+# 1. Install globally from the project directory
+npm link
+
+# 2. Setup global configuration (run from your blog project directory)
+blog setup
+
+# 3. Now you can use the blog command from anywhere!
+blog          # Create a new blog post (default)
+blog new      # Create a new blog post
+blog edit     # Edit an existing blog post
+```
+
+**Alternative Setup Methods:**
+
+```bash
+# Option 1: Environment variable (add to ~/.bashrc, ~/.zshrc, etc.)
+export BLOG_PROJECT_ROOT="/path/to/your/blog/project"
+
+# Option 2: Manual config file
+echo '{"projectRoot": "/path/to/your/blog/project"}' > ~/.blog-config.json
+```
+
+#### Local Usage
+
+Alternatively, you can run it locally:
+
+```bash
+# Create a new blog post (default command)
+npm run blog
+npm run blog new
+
+# Edit an existing blog post
+npm run blog edit
+```
+
+#### Features:
+- **Global access**: Works from any directory on your system (after setup)
+- **Interactive prompts**: Enter title and set publication status
+- **Automatic file structure**: Creates properly formatted directories and files
+- **Editor integration**: Opens posts in your preferred editor (VS Code by default)
+- **Post selection**: Browse and select from existing posts with arrow keys or numbers
+- **Status indicators**: Shows publication status and dates in the selection menu
+- **Flexible configuration**: Multiple ways to configure project location
+- **Smart project detection**: Falls back to directory traversal when needed
+
+The CLI tool will:
+1. Locate your blog project using configured path or smart detection
+2. Generate the correct directory structure (`YYYY-MM-DD-slug/`)
+3. Create the markdown file with proper frontmatter
+4. Open the new or selected post in your editor
+
+**Setup Commands:**
+- `blog setup` - Interactive setup for global configuration
+- `blog --help` - Show all available commands
+
+### Manual Blog Post Creation
+
+Alternatively, you can manually create posts:
 
 1. Create a new directory in `content/blog/` with the format: `YYYY-MM-DD-title/`
 2. Add an `index.md` file with the following frontmatter:
@@ -119,6 +185,7 @@ The blog uses Tailwind CSS with:
 - `npm start` - Start production server
 - `npm run lint` - Run ESLint
 - `npm run format` - Format code with Prettier
+- `npm run blog` - Create or edit blog posts (CLI tool)
 
 ## 📄 License
 
