@@ -11,7 +11,7 @@ export async function getAllPosts(): Promise<BlogPost[]> {
   const postDirs = fs.readdirSync(postsDirectory);
   
   const posts = await Promise.all(
-    postDirs.map(async (dir) => {
+    postDirs.map(async (dir): Promise<BlogPost | null> => {
       const fullPath = path.join(postsDirectory, dir, 'index.md');
       
       if (!fs.existsSync(fullPath)) {
