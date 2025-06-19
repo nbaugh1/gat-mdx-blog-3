@@ -90,6 +90,51 @@ Looking for more guidance? Full documentation for Gatsby lives [on the website](
 
 - **To dive straight into code samples, head [to our documentation](https://www.gatsbyjs.org/docs/).** In particular, check out the _Guides_, _API Reference_, and _Advanced Tutorials_ sections in the sidebar.
 
+## 📝 Blog Post Management Tool
+
+This project includes a convenient CLI tool for creating and managing blog posts:
+
+### Installation
+After running `npm install`, the `blog-post` command will be available:
+
+```shell
+# Create a new blog post
+blog-post
+# or
+blog-post new
+
+# Edit an existing blog post
+blog-post edit
+```
+
+### Features
+
+- **Interactive Post Creation**: Prompts for post title and automatically generates URL-friendly slugs
+- **Organized Structure**: Creates posts in dated folders (`YYYY-MM-DD-slug/index.md`)
+- **Smart Frontmatter**: Generates proper frontmatter with title, date, featured image field, and published status
+- **Draft Mode**: New posts default to `published: false` for draft workflow
+- **Post Editing**: Interactive selection of existing posts for editing
+- **Editor Integration**: Automatically opens posts in your preferred editor (respects `$EDITOR` environment variable)
+
+### Post Structure
+Posts are created in `/content/blog/` with the following structure:
+```
+content/
+  blog/
+    2023-12-15-my-new-post/
+      index.md
+```
+
+Each post includes frontmatter:
+```yaml
+---
+title: "My New Post"
+date: "2023-12-15"
+featuredImage: ""
+published: false
+---
+```
+
 ## 💫 Deploy
 
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-blog)
