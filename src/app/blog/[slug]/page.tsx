@@ -1,7 +1,8 @@
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
-import { getPostBySlug, getAllPostSlugs } from '@/lib/blog';
+import { getPostBySlug, getAllPostSlugs, getAdjacentPosts } from '@/lib/blog';
 import { formatDate } from '@/lib/utils';
+import Link from 'next/link';
 
 interface BlogPostPageProps {
   params: {
@@ -49,8 +50,25 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     notFound();
   }
 
+  const { previous, next } = await getAdjacentPosts(params.slug);
+
   return (
     <article className="max-w-3xl mx-auto">
+      <nav className="mb-6 text-sm text-gray-500">
+        <div className="flex justify-between">
+          {previous ? (
+            <Link href={`/blog/${previous.slug}`} className="hover:text-gray-900">
+              ← {previous.title}
+            </Link>
+          ) : <div></div>}
+          {next ? (
+            <Link href={`/blog/${next.slug}`} className="hover:text-gray-900">
+              {next.title} →
+            </Link>
+          ) : <div></div>}
+        </div>
+      </nav>
+
       <header className="mb-8">
         <h1 className="text-4xl font-bold text-gray-900 mb-4">
           {post.title}
