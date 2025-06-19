@@ -18,7 +18,7 @@
   "dependencies": {
     "@tailwindcss/typography": "^0.5.10",
     "chalk": "^4.1.2",
-    "commander": "^14.0.0",
+    "commander": "^12.0.0",
     "gray-matter": "^4.0.3",
     "inquirer": "^9.3.7",
     "next": "^14.0.0",
